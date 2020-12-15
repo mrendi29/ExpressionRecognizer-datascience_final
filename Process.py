@@ -15,7 +15,7 @@ def emotion_analysis(emotions):
 ind = 0
 objects = ('angry', 'disgust', 'fear', 'happy', 'sad', 'surprise', 'neutral')
 y_pos = np.arange(len(objects))*33
-imgFile = 'bigblackman.jpg'
+imgFile = 'nutaj.jpg'
 
 # load the model we saved
 model = load_model('model.h5')
