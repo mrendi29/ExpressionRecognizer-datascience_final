@@ -30,7 +30,7 @@ and what happens when you take the meth
 
 Discussion
 ========
-The model included is likely over-fit as it struggles with faces of people of different ethnicities with different facial features. This could be improved with a larger dataset and different amounts of training according to the CLT.
+The model included is likely over-fit as it struggles with faces of people of different ethnicities with different facial features. This could be improved with a larger dataset and different amounts of training according to the central limit theorem.
 
 
 Summary
