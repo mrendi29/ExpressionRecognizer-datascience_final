@@ -1,5 +1,4 @@
 from flask import render_template, request, redirect, flash, url_for
-import urllib.request
 from werkzeug.utils import secure_filename
 import os
 from app.app import app
