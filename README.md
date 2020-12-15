@@ -21,21 +21,24 @@ The machine learning model was trained using data sets found from __[Kaggle](htt
 
 Methods
 ========
-In order to solve our initial question of 
+In order to solve our initial question of how to determine someone's mood from a picture, we first have to consider each individual step of what the program should do. We knew we would have to read the image into an array because the process of finding a face in a picture by itself would be a whole different project (that many people have helped figure out just for us). Python's packages Keras and TensorFlow work together to provide a set of tools that allow easily deployable machine learning algorithms. Keras acts as a wrapper to make the commands most efficient, and TensorFlow offers a variety of complex mathemetical formulas which perform the intense calculations for our algorithm. With this set of tools, we can easily compress images and score them against the model, as well as build the model. The model we used was a sequential model, that had a batch size of 64 and epoch of 20. The lower numbers allowed repeated tries without melting our CPU's and each epoch took roughly 20 minute, meaning the smaller the epoch, the faster we can start finding out the last time I looked happy. Once we built our models, we simply had to pass the image to the model to form a prediction. Through some trials we were able to settle on a model that claimed to be 97% accurate, although that's probably inflated for reasons discussed below.
 
 Results
 ========
-and what happens when you take the meth
+|Neutral|Angry|Happy|
+|----|----|----|
+|![neutralaj](neutralaj.jpg)|![angryaj](angryaj.jpg)|![happymemo](happymemo.jpg)|
 
+As you can see, our model was able to predict the above emotions. We noticed that the algorithms was best at finding happy or angry emotions, whereas sad and disgust were less frequent. 
 
 Discussion
 ========
-The model included is likely over-fit as it struggles with faces of people of different ethnicities with different facial features. This could be improved with a larger dataset and different amounts of training according to the central limit theorem.
+The model included is likely over-fit as it struggles with faces of people of different ethnicities with different facial features. This could be improved with a larger dataset and different amounts of training. When considering that this data set had roughly 36k images, it barely scratches the surface of unique people. The more localized the data set images are, the less accurate the training will be. Additionally, the images are converted to grayscale, which will also cause darker complexions to be washed out, making it harder for the algorithm to be really as diverse as it should be. 
 
 
 Summary
 ========
-thats that 
+This project was incredibly fascinating to watch as a computer can turn ones and zeroes into a predicted emotion. Given endless time, we all could have easily taken this project further and further. An interesting step to take for this project would be to train multiple models, to first detect a possible area of origin based on facial features, and then build models based on data sets of unique people proportional to the population. What this would like look would be to first detect a person has features consistent with that of Americans, Europeans, Asians, etc, which would generate a result that would feed into an array of models, then scoring the image based on the model for a given location. This allows for highly accurate data sets, were there would be next to no over-fitting.
 
 References
 ========
