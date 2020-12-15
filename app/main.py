@@ -1,11 +1,40 @@
-from flask import Flask
-app= Flask(__name__)
-@app.route('/')
+from flask import render_template, request, redirect, flash, url_for
+import urllib.request
+from werkzeug.utils import secure_filename
+import os
+from app.app import app
+import logging
+
+
+@app.route("/")
 def index():
-    return "<h1>Welcome to our Data Science Final :))</h1>"
+    return render_template("index.html")
 
 
-@app.route('/hi')
+@app.route("/hi")
 def hi():
     return "This is just a test"
 
+
+@app.route("/", methods=["POST"])
+def submit_file():
+    if request.method == "POST":
+        if "file" not in request.files:
+            flash("No file part")
+            return redirect(request.url)
+        file = request.files["file"]
+        if file.filename == "":
+            flash("No file selected for uploading")
+            return redirect(request.url)
+        if file:
+            # do sth
+            filename = secure_filename(file.filename)
+            logging.warning(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+            logging.warning(app.config["UPLOAD_FOLDER"])
+            file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+        #     getPrediction(filename)
+        #     label, acc = getPrediction(filename)
+        #     flash(label)
+        #     flash(acc)
+        #     flash(filename)
+        #     return redirect("/")
