@@ -1,4 +1,4 @@
-Data Science Final WIT 2020
+Data Science Final WIT 2020 - Expression Recognizer
 ========
 
 * __[Andrew Galvin](https://github.com/andrewgalvin)__
