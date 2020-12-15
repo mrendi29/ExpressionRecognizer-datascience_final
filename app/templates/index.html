@@ -9,8 +9,7 @@
     <p>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
-        Label: {{ messages[0] }}
-        Accuracy: {{ messages[1] }}
+        Predicted emotion : {{ messages[0] }}
         {% endif %}
         {% endwith %}
     </p>
@@ -22,6 +21,12 @@
         </dl>
         <p>
             <input class="btn" type="submit" value="Submit">
-        </p>
-    </form>
+            </p>
+        </form>
+
+    {% if filename %}
+    <div>
+        <img src="{{filename}}"  alt="User Image">
+    </div>
+    {% endif %}
 </div>

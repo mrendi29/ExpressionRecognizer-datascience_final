@@ -2,6 +2,8 @@ from flask import render_template, request, redirect, flash, url_for
 from werkzeug.utils import secure_filename
 import os
 from app.app import app
+
+from app.predict_image import show_prediction
 import logging
 
 
@@ -30,12 +32,9 @@ def submit_file():
             filename = secure_filename(file.filename)
             logging.warning(os.path.join(app.config["UPLOAD_FOLDER"], filename))
             logging.warning(app.config["UPLOAD_FOLDER"])
-            file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
-            flash("Still in work please check later\n")
-            flash("Still in work please check later")
-            #     getPrediction(filename)
-            #     label, acc = getPrediction(filename)
-            #     flash(label)
-            #     flash(acc)
-            #     flash(filename)
-            return redirect("/")
+            file_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+            file.save(file_path)
+            label = show_prediction(file_path)
+            flash(label)
+
+            return render_template("index.html", filename=file_path)
