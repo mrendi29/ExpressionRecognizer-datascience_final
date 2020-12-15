@@ -30,7 +30,7 @@ Results
 |----|----|----|
 |![neutralaj](neutralaj.jpg)|![angryaj](angryaj.jpg)|![happymemo](happymemo.jpg)|
 
-As you can see, our model was able to predict the above emotions. We noticed that the algorithms was best at finding happy or angry emotions, whereas sad and disgust were less frequent. 
+As you can see, our model was able to predict the above emotions. We noticed that the algorithm was best at finding happy or angry emotions, whereas sad and disgust were less frequent. 
 
 Discussion
 ========
