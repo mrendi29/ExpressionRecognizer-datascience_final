@@ -3,14 +3,6 @@ from keras.models import load_model
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-def emotion_analysis(emotions):
-    plt.bar(y_pos, emotions, align="center", alpha=0.9)
-    plt.tick_params(axis="x", which="both", pad=10, width=4, length=10)
-    plt.xticks(y_pos, objects)
-    plt.ylabel("percentage")
-
-
 # instantializing variables
 ind = 0
 objects = ("angry", "disgust", "fear", "happy", "sad", "surprise", "neutral")
@@ -30,7 +22,6 @@ x /= 255
 
 # making the prediction based on our model
 custom = model.predict(x)
-emotion_analysis(custom[0])
 
 # finding the most likely expression
 m = 0.000000000000000000001
@@ -40,9 +31,11 @@ for i in range(0, len(a)):
         m = a[i]
         ind = i
 
-plt.title(objects[ind])
+
 print("Expression Prediction:", objects[ind])
 
+plt.title(objects[ind])
 plt.gray()
 plt.imshow(show_img)
+plt.axis("off")
 plt.show()
