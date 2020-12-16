@@ -3,7 +3,7 @@ from werkzeug.utils import secure_filename
 import os
 from app.app import app
 
-# from app.predict_image import show_prediction
+from app.predict_image import show_prediction
 import logging
 
 
@@ -34,7 +34,7 @@ def submit_file():
             logging.warning(app.config["UPLOAD_FOLDER"])
             file_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
             file.save(file_path)
-            #           label = show_prediction(file_path)
-            flash("Still in work Heroku doesnt allow anything past 300mb :)")
-
+            label = show_prediction(file_path)
+            # flash("Still in work Heroku doesnt allow anything past 300mb :)")
+            flash(label)
             return render_template("index.html", filename=file_path)
