@@ -8,7 +8,7 @@ import os
 # instantializing variables
 def show_prediction(filename):
     ind = 0
-    objects = ("angry", "disgust", "fear", "happy", "sad", "surprise", "neutral")
+    objects = ["angry", "disgust", "fear", "happy", "sad", "surprise", "neutral"]
 
     # load the model we saved
     model_path = os.path.join(os.path.dirname(__file__), "model.h5")
