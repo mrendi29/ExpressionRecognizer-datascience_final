@@ -2,6 +2,7 @@ from keras.preprocessing import image
 from keras.models import load_model
 import numpy as np
 import logging
+import os
 
 
 # instantializing variables
@@ -10,7 +11,9 @@ def show_prediction(filename):
     objects = ("angry", "disgust", "fear", "happy", "sad", "surprise", "neutral")
 
     # load the model we saved
-    model = load_model("model.h5")
+    model_path = os.path.join(os.path.dirname(__file__), "model.h5")
+    logging.warning(model_path)
+    model = load_model(model_path)
     model.compile(loss="binary_crossentropy", optimizer="rmsprop", metrics=["accuracy"])
 
     img = image.load_img(filename, grayscale=True, target_size=(48, 48))
