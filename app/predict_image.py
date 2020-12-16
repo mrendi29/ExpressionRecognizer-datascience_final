@@ -1,8 +1,8 @@
 from keras.preprocessing import image
 from keras.models import load_model
 import numpy as np
-import matplotlib.pyplot as plt
 import logging
+
 
 # instantializing variables
 def show_prediction(filename):
@@ -14,7 +14,6 @@ def show_prediction(filename):
     model.compile(loss="binary_crossentropy", optimizer="rmsprop", metrics=["accuracy"])
 
     img = image.load_img(filename, grayscale=True, target_size=(48, 48))
-    show_img = image.load_img(filename, grayscale=False, target_size=(200, 200))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
 
@@ -32,11 +31,5 @@ def show_prediction(filename):
             ind = i
 
     logging.warning("Expression Prediction:", objects[ind])
-
-    plt.title(objects[ind])
-    plt.gray()
-    plt.imshow(show_img)
-    plt.axis("off")
-    plt.show()
 
     return objects[ind]
